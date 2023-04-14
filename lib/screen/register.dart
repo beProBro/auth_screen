@@ -1,5 +1,7 @@
 import 'package:auth_project/configs.dart';
 import 'package:auth_project/screen/signin-page.dart';
+import 'package:auth_project/widgets/primaryButton-widget.dart';
+import 'package:auth_project/widgets/textfields-widget.dart';
 import 'package:flutter/material.dart';
 
 class Register extends StatelessWidget {
@@ -28,21 +30,18 @@ class Register extends StatelessWidget {
               "Hello user , you have \na greatful journey",
               style: TextStyle(fontSize: 25),
             ),
-            _buildTextField("Name"),
-            _buildTextField("Bussiness name"),
-            _buildTextField("Phone"),
-            _buildTextField("Email"),
-            _buildTextField("Password"),
+            TextFieldWidget(hint: "Name"),
+            TextFieldWidget(hint: "Bussiness name"),
+            TextFieldWidget(hint: "Phone"),
+            TextFieldWidget(hint: "Email"),
+            TextFieldWidget(hint: "Password"),
             Container(
               margin: const EdgeInsets.symmetric(vertical: defaultPadding),
               width: size.width * 0.9,
-              child: ElevatedButton(
-                  onPressed: () {},
-                  style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.black,
-                      padding:
-                          const EdgeInsets.symmetric(vertical: defaultPadding)),
-                  child: const Text("Register")),
+              child: PrimaryButtonWidget(
+                name: "Register",
+                onPressed: () {},
+              ),
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -66,16 +65,6 @@ class Register extends StatelessWidget {
             ),
           ],
         ),
-      ),
-    );
-  }
-
-  Widget _buildTextField(String hint) {
-    return Padding(
-      padding: const EdgeInsets.only(top: defaultPadding * 2),
-      child: TextFormField(
-        decoration:
-            InputDecoration(hintText: hint, border: const OutlineInputBorder()),
       ),
     );
   }

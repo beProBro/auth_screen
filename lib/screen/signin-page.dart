@@ -1,7 +1,10 @@
 import 'dart:ui';
 
 import 'package:auth_project/configs.dart';
+import 'package:auth_project/screen/forgotPassword-page.dart';
 import 'package:auth_project/screen/register.dart';
+import 'package:auth_project/widgets/primaryButton-widget.dart';
+import 'package:auth_project/widgets/textfields-widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
@@ -35,38 +38,32 @@ class SignInPage extends StatelessWidget {
               "You have been missed",
               style: TextStyle(fontSize: 25),
             ),
-            Padding(
-              padding: const EdgeInsets.only(top: defaultPadding * 2),
-              child: TextFormField(
-                decoration: const InputDecoration(
-                    hintText: "Email,phone & username",
-                    border: OutlineInputBorder()),
-              ),
+            TextFieldWidget(
+              hint: "Email,phone & username",
             ),
-            Padding(
-              padding: const EdgeInsets.symmetric(vertical: defaultPadding),
-              child: TextFormField(
-                decoration: const InputDecoration(
-                    hintText: "Password", border: OutlineInputBorder()),
-              ),
+            TextFieldWidget(
+              hint: "Password",
+              edgeInsets: const EdgeInsets.symmetric(vertical: defaultPadding),
             ),
             Align(
               alignment: Alignment.centerRight,
               child: TextButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => ForgotPasswordPage()));
+                  },
                   style: TextButton.styleFrom(primary: Colors.black),
                   child: const Text("Forgot Password?")),
             ),
             Container(
               margin: const EdgeInsets.symmetric(vertical: defaultPadding),
               width: size.width * 0.9,
-              child: ElevatedButton(
-                  onPressed: () {},
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.black,
-                      padding:
-                          const EdgeInsets.symmetric(vertical: defaultPadding)),
-                  child: const Text("Sign in")),
+              child: PrimaryButtonWidget(
+                name: "Sign in",
+                onPressed: () {},
+              ),
             ),
             Row(
               children: const [
